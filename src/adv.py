@@ -40,12 +40,11 @@ room['treasure'].s_to = room['narrow']
 
 player = Player('Anna', room['outside'])
 
-print(player)
+print(player.room.n_to)
 # Make a new player object that is currently in the 'outside' room.
 
 # Write a loop that:
 #
-
 # * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
@@ -55,5 +54,34 @@ print(player)
 #
 # If the user enters "q", quit the game.
 
+while True:
+    direction = input('Where do you want to go? Enter [n], [s], [e], or [w]. Press [q] to quit.\n')
 
+    print(player.room)
 
+    if direction == 'n':
+        if player.room.n_to != 0:
+            player.room = player.room.n_to
+        else: 
+            print('There is no room that direction. Please select another direction')
+        
+    if direction == 'e':
+        if player.room.e_to != 0:
+            player.room = player.room.e_to
+        else: 
+           print('There is no room that direction. Please select another direction')
+        
+    if direction == 'w':
+        if player.room.w_to != 0:
+            player.room = player.room.w_to
+        else: 
+            print('There is no room that direction. Please select another direction')
+
+    if direction == 's':
+        if player.room.s_to != 0:
+           player.room = player.room.s_to
+        else: 
+           print('There is no room that direction. Please select another direction')
+ 
+    if direction == 'q':
+            break
