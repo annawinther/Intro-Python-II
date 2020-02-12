@@ -1,9 +1,9 @@
 from room import Room
-
+from player import Player
 # Declare all the rooms
 
 room = {
-    'outside':  Room("Outside Cave Entrance",
+    'outside': Room("Outside Cave Entrance",
                      "North of you, the cave mount beckons"),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
@@ -37,6 +37,10 @@ room['treasure'].s_to = room['narrow']
 # Main
 #
 
+
+player = Player('Anna', room['outside'])
+
+print(player)
 # Make a new player object that is currently in the 'outside' room.
 
 # Write a loop that:
@@ -52,4 +56,4 @@ room['treasure'].s_to = room['narrow']
 # If the user enters "q", quit the game.
 
 
-# Step 1: make a REPL
+
