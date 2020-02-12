@@ -2,6 +2,11 @@ from room import Room
 from player import Player
 # Declare all the rooms
 
+
+name = input("What is the name of your character: ")
+
+print(f"Let's begin your adventure, {name}!")
+
 room = {
     'outside': Room("Outside Cave Entrance",
                      "North of you, the cave mount beckons"),
@@ -38,9 +43,9 @@ room['treasure'].s_to = room['narrow']
 #
 
 
-player = Player('Anna', room['outside'])
-
-print(player.room.n_to)
+player = Player(name, room['outside'])
+starting_room = player.room
+print(f'You start here: {starting_room}')
 # Make a new player object that is currently in the 'outside' room.
 
 # Write a loop that:
@@ -55,33 +60,32 @@ print(player.room.n_to)
 # If the user enters "q", quit the game.
 
 while True:
-    direction = input('Where do you want to go? Enter [n], [s], [e], or [w]. Press [q] to quit.\n')
+    direction = input("Where do you want to go? Enter [n] North, [s] South, [e] East, or [w] West. Press [q] Quit to quit.\n")
+    print(f"You're here: {player.room}")
 
-    print(player.room)
-
-    if direction == 'n':
+    if direction == "n":
         if player.room.n_to != 0:
             player.room = player.room.n_to
         else: 
-            print('There is no room that direction. Please select another direction')
+            print("There is no room that direction. Please select another direction")
         
-    if direction == 'e':
+    if direction == "e":
         if player.room.e_to != 0:
             player.room = player.room.e_to
         else: 
-           print('There is no room that direction. Please select another direction')
+           print("There is no room that direction. Please select another direction")
         
-    if direction == 'w':
+    if direction == "w":
         if player.room.w_to != 0:
             player.room = player.room.w_to
         else: 
-            print('There is no room that direction. Please select another direction')
+            print("There is no room that direction. Please select another direction")
 
-    if direction == 's':
+    if direction == "s":
         if player.room.s_to != 0:
            player.room = player.room.s_to
         else: 
-           print('There is no room that direction. Please select another direction')
+           print("There is no room that direction. Please select another direction")
  
-    if direction == 'q':
+    if direction == "q":
             break
